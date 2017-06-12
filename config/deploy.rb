@@ -1,4 +1,3 @@
-hange these
 server '67.207.87.90', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:daniloanobre/rails_api_with_spec.git'
