@@ -43,16 +43,9 @@ Created database 'todos_api_with_spec_development'
 Created database 'todos_api_with_spec_test'
 
 Run the migrations
-$ rails db:migrate
-== <timestamps1> CreateTodos: migrating ======================================
--- create_table(:todos)
-   -> 0.0197s
-== <timestamps1> CreateTodos: migrated (0.0197s) =============================
-
-== <timestamps2> CreateItems: migrating ======================================
--- create_table(:items)
-   -> 0.0205s
-== <timestamps2> CreateItems: migrated (0.0206s) =============================
+```sh
+rails db:migrate
+```
 
 Write Todo's and Item's specs
 
