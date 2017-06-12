@@ -8,10 +8,10 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  host: localhost
-  port: 5432
-  username: assista
-  password: assista
+  host: <%= ENV["database_host"] %>
+  port: <%= ENV["database_port"] %>
+  username: <%= ENV["database_user"] %>
+  password: <%= ENV["database_password"] %>
 
 development:
   <<: *default
