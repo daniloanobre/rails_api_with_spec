@@ -1,10 +1,15 @@
 Create the API project
 
-$ rails new todos-api --api -T
 Tell rails that your project is an API with --api
+```sh
+rails new todos-api --api -T
+```
 
 Initialize the spec directory where your tests will be written
-$ rails generate rspec:install
+
+```sh
+rails generate rspec:install
+```
 
 It will create some files and a folder:
 create  .rspec
@@ -13,18 +18,27 @@ create  spec/spec_helper.rb
 create  spec/rails_helper.rb
 
 Create a folder for the factory files
-$ mkdir spec/factories
+```sh
+mkdir spec/factories
+```
 
 Define the configuration of shoulda matchers, rspec and database cleaner at spec/rails_helper.rb
 
 Create the models
-$ rails g model Todo title:string created_by:string
-$ rails g model Item name:string done:boolean todo:references
+```sh
+rails g model Todo title:string created_by:string
+```
+```sh
+rails g model Item name:string done:boolean todo:references
+```
 
 There is a relationship between Todo and Item models. One Todo instance has many Items
 
 Create the databases:
-$ rails db:create
+```sh
+rails db:create
+```
+
 Created database 'todos_api_with_spec_development'
 Created database 'todos_api_with_spec_test'
 
@@ -45,12 +59,18 @@ Write Todo's and Item's specs
 Edit the models to validate the fields and define the relationship
 
 Run the spec you defined
-$ rspec
-
+```sh
+rspec
+```
 
 Now create the controllers
-$ rails g controller Todos
-$ rails g controller Items
+```sh
+rails g controller Todos
+```
+
+```sh
+rails g controller Items
+```
 
 These commands will create some files:
 create  app/controllers/todos_controller.rb
@@ -66,15 +86,43 @@ resources :todos do
   resources :items
 end
 
+---
+
+## API Routes ##
+
+### Products ###
+|   Action                                 | Method    | URL                                               
+| -----------------------------------------|-----------|----------------------------------------------------- 
+|   List all todos                         |  `GET`    | /todos
+|   Create a new todo                      |  `POST`   | /todos
+|   Get a todo                  					 |  `GET`    | /todos/:id
+|   Update a todo                          |  `PUT`    | /todos/:id
+|   Delete a todo and its items            |  `DELETE` | /todos/:id
+|   Get a todo item              					 |  `GET`    | /todos/:id/items
+|   Update a todo item                     |  `PUT`    | /todos/:id/items
+|   Delete a todo item                     |  `DELETE` | /todos/:id/items
+
+---
+
 Create a folder for requests specs and the files for each controller we have
-$ mkdir spec/requests
-$ touch spec/requests/todos_spec.rb
-$ touch spec/requests/items_spec.rb
+```sh
+mkdir spec/requests
+```
+
+```sh
+touch spec/requests/todos_spec.rb
+```
+```sh
+touch spec/requests/items_spec.rb
+```
 
 Now we have to create some factories to provide data for tests
-$ touch spec/factories/todos.rb
-$ touch spec/factories/items.rb
-
+```sh
+touch spec/factories/todos.rb
+```
+```sh
+touch spec/factories/items.rb
+```
 
 Write spec/requests
 Write controller/concerns/exception_halder.rb, request_spec_helper.rb and response.rb
@@ -90,4 +138,14 @@ end
 
 Run the tests and check that everything is ok
 
-$ rspec
+```sh
+rspec
+```
+
+---
+
+## Contributor
+
+> Danilo Assis Nobre dos Santos Silva ([daniloanobre](https://github.com/daniloanobre)) danilo@lavid.ufpb.br
+
+---
